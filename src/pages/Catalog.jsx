@@ -1,5 +1,14 @@
+import { useSelector } from "react-redux";
+import CarList from "../components/CarList";
+
 const Catalog = () => {
-  return <div>Catalog page</div>;
+  const { isLoading } = useSelector((state) => state.cars);
+
+  return (
+    <>
+      <CarList />
+    </>
+  );
 };
 
 export default Catalog;

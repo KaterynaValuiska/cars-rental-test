@@ -1,26 +1,21 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { Suspense } from "react";
+import { LayoutNav, LinkNav, Main } from "./Layout.styled";
 
 export const Layout = () => {
   return (
-    <div className="Layout">
-      <nav className="LayoutNav">
-        <NavLink to="/" className="NavLink">
-          Home
-        </NavLink>
+    <div>
+      <LayoutNav>
+        <LinkNav to="/">Home</LinkNav>
 
-        <NavLink to="/catalog" className="NavLink">
-          Catalog
-        </NavLink>
-        <NavLink to="/favorites" className="NavLink">
-          favorites
-        </NavLink>
-      </nav>
-      <main>
+        <LinkNav to="/catalog">Catalog</LinkNav>
+        <LinkNav to="/favorites">Favorites</LinkNav>
+      </LayoutNav>
+      <Main>
         <Suspense fallback={<div>loader</div>}>
           <Outlet />
         </Suspense>
-      </main>
+      </Main>
     </div>
   );
 };
