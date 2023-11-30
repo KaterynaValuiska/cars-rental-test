@@ -57,6 +57,9 @@ export const InfoCar = styled.p`
   margin: 0;
   padding: 0;
   position: relative;
+  max-width: 160px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   &::after {
     content: "";
     position: absolute;
@@ -109,4 +112,9 @@ export const WrapperTextRentalVavues = styled.div`
 `;
 export const Span = styled.span`
   color: rgba(52, 112, 255, 1);
+`;
+export const WrapperMain = styled.div`
+  position: relative;
+  width: 501px;
+  height: 634px;
 `;

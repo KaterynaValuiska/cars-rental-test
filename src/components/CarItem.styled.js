@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
   border-radius: 14px;
   border: 0px solid rgba(11, 68, 205, 1);
   overflow: hidden;
+  position: relative;
 `;
 export const Imeg = styled.img`
   height: 268px;
@@ -74,4 +75,10 @@ export const WrapperCars = styled.div`
   gap: 50px 29px;
   flex-wrap: wrap;
   width: 1184px;
+`;
+
+export const Favorite = styled.div`
+  position: absolute;
+  right: 5px;
+  top: 5px;
 `;

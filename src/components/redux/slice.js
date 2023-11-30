@@ -13,17 +13,38 @@ export const carsSlice = createSlice({
   name: "cars",
   initialState: {
     items: [],
+    orders: [],
     isLoading: false,
     error: null,
   },
-
-  extraReducers: {
-    [fetchCars.pending]: handlePending,
-    [fetchCars.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items = action.payload;
+  reducers: {
+    addOrders(state, action) {
+      state.orders.push(action.payload);
     },
-    [fetchCars.rejected]: handleRejected,
   },
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchCars.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = action.payload;
+      })
+      .addCase(fetchCars.pending, handlePending)
+      .addCase(fetchCars.rejected, handleRejected),
+  // .addCase(addOrders, (state, action) => {
+  //   state.orders = action.payload;
+  //   // state.orders.push(action.payload);
+  //   console.log(state.orders);
+  // }),
+  // {
+  //   [fetchCars.pending]: handlePending,
+  //   [fetchCars.fulfilled](state, action) {
+  //     state.isLoading = false;
+  //     state.error = null;
+  //     state.items = action.payload;
+  //   },
+  //   [fetchCars.rejected]: handleRejected,
+  // },
 });
+// export const carReducer = carsSlice.reducer;
+export const { addOrders } = carsSlice.actions;

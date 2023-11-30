@@ -13,11 +13,9 @@ export const Overlay = styled.div`
 `;
 export const ModalStyled = styled.div`
   position: relative;
-  width: 501px;
-  height: 634px;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 24px);
   background-color: rgba(255, 255, 255, 1);
   border-radius: 24px;
   padding: 40px;
 `;
-// max-width: calc(100vw - 48px);
-//   max-height: calc(100vh - 24px);

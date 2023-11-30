@@ -6,6 +6,8 @@ const Catalog = () => {
 
   return (
     <>
+      <h2>Catalog of cars</h2>
+      {isLoading && <div>loader</div>}
       <CarList />
     </>
   );

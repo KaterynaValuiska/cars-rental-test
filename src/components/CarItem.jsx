@@ -8,28 +8,37 @@ import {
   WrapperName,
   Imeg,
   InfoCar,
+  Favorite,
   WrapperInfo,
 } from "./CarItem.styled";
+import heart from "./heart.svg";
+import heartBlue from "./heartBlue.svg";
 import InformAboutCar from "./InformAboutCar";
-const CarItem = ({
-  make,
-  rentalPrice,
-  img,
-  rentalCompany,
-  address,
-  model,
-  year,
-  type,
-  functionalities,
-  id,
-  fuelConsumption,
-  engineSize,
-  description,
-  functionalitiesArr,
-  accessories,
-  mileage,
-}) => {
+
+const CarItem = (item) => {
+  const {
+    make,
+    rentalPrice,
+    img,
+    rentalCompany,
+    address,
+    model,
+    year,
+    type,
+    functionalities,
+    id,
+    fuelConsumption,
+    engineSize,
+    description,
+    functionalitiesArr,
+    accessories,
+    mileage,
+    onAdd,
+    rentalConditions,
+  } = item;
+
   const [showModal, setShowModal] = useState(false);
+  const [select, setSelect] = useState(false);
   const addressArray = address.split(" ");
   const country = addressArray[addressArray.length - 1];
   const city = addressArray[addressArray.length - 2];
@@ -41,9 +50,17 @@ const CarItem = ({
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+
+  const addToFavorite = () => {
+    onAdd(item);
+    setSelect(true);
+  };
   return (
     <>
       <Wrapper>
+        <Favorite onClick={addToFavorite}>
+          <img src={select ? heartBlue : heart} alt="svg" />
+        </Favorite>
         <Imeg src={img} alt={make} />
         <WrapperName>
           <NameCar>
@@ -83,6 +100,7 @@ const CarItem = ({
             rentalPrice={rentalPrice}
             mileage={mileage}
             onclick={toggleModal}
+            rentalConditions={rentalConditions}
           />
         </Modal>
       )}

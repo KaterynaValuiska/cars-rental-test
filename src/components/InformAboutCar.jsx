@@ -12,8 +12,10 @@ import {
   WrapperTextRentalVavues,
   Span,
   ButtonClose,
+  WrapperMain,
 } from "./InformAboutCar.styled";
 import x from "./x.svg";
+
 const InformAboutCar = ({
   img,
   make,
@@ -31,13 +33,12 @@ const InformAboutCar = ({
   rentalPrice,
   mileage,
   onclick,
+  rentalConditions,
 }) => {
-  const str =
-    "Minimum age: 25\nValid driver's license\nSecurity deposit required";
-  const array = str.split("\n");
+  const array = rentalConditions.split("\n");
 
   return (
-    <div style={{ position: "relative" }}>
+    <WrapperMain>
       <ButtonClose onClick={onclick}>
         <img src={x} alt="svg" />
       </ButtonClose>
@@ -92,7 +93,7 @@ const InformAboutCar = ({
         </TextRentalVavues>
       </WrapperTextRentalVavues>
       <Button href="tel:+380730000000">Rental car</Button>
-    </div>
+    </WrapperMain>
   );
 };
 
