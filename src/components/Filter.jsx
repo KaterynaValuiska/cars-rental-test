@@ -43,7 +43,6 @@ const makes = [
   "Audi",
   "BMW",
   "Chevrolet",
-  "Mercedes-Benz",
   "Chrysler",
   "Kia",
   "Land",
