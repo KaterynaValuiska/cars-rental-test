@@ -8,7 +8,7 @@ const Favorites = () => {
   const { orders } = useSelector((state) => state.cars);
   let favoritesCar = orders.flat();
   console.log(favoritesCar);
-
+  console.log("test");
   const carsStringify = JSON.stringify(favoritesCar);
   localStorage.setItem("select-car", carsStringify);
 
