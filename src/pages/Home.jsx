@@ -13,6 +13,10 @@ const Home = () => {
     <>
       {isLoading && <div>loader</div>}
       <div>Home page</div>
+      <div>
+        <p>The number of available cars in the database</p>
+        <span>{items.length}</span>
+      </div>
     </>
   );
 };
