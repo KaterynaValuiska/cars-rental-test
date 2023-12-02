@@ -36,6 +36,12 @@ const InformAboutCar = ({
   rentalConditions,
 }) => {
   const array = rentalConditions.split("\n");
+  function placeInCenter(num) {
+    const strMile = String(num);
+    let array = strMile.split("");
+    array.splice(1, 0, ",");
+    return array.join("");
+  }
 
   return (
     <WrapperMain>
@@ -86,7 +92,7 @@ const InformAboutCar = ({
         <TextRentalVavues>{array[1]}</TextRentalVavues>
         <TextRentalVavues>{array[2]}</TextRentalVavues>
         <TextRentalVavues>
-          Mileage: <Span>{mileage}</Span>
+          Mileage: <Span>{placeInCenter(mileage)}</Span>
         </TextRentalVavues>
         <TextRentalVavues>
           Price: <Span>{rentalPrice}</Span>

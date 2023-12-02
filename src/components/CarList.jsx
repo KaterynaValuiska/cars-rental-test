@@ -7,21 +7,29 @@ import { addOrders } from "./redux/slice";
 
 const CarList = () => {
   const dispatch = useDispatch();
-  const { items, isLoading } = useSelector((state) => state.cars);
+  const { items, isLoading, filter } = useSelector((state) => state.cars);
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
 
   const addToOrder = (item) => {
     dispatch(addOrders(item));
   };
 
-  useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+  const getFilterCars = () => {
+    if (filter === "enter the text") {
+      return items;
+    }
+
+    return items.filter((car) => car.make.toLowerCase().includes(filter));
+  };
   return (
     <>
       {isLoading && <div>loader</div>}
       <WrapperCars>
         {items &&
-          items.map(
+          getFilterCars().map(
             ({
               make,
               rentalPrice,
