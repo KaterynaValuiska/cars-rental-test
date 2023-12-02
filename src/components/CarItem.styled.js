@@ -75,6 +75,7 @@ export const WrapperCars = styled.div`
   gap: 50px 29px;
   flex-wrap: wrap;
   width: 1184px;
+  margin-top: 50px;
 `;
 
 export const Favorite = styled.div`

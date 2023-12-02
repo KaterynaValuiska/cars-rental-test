@@ -14,12 +14,16 @@ export const carsSlice = createSlice({
   initialState: {
     items: [],
     orders: [],
+    filter: "",
     isLoading: false,
     error: null,
   },
   reducers: {
     addOrders(state, action) {
       state.orders.push(action.payload);
+    },
+    filterCar(state, action) {
+      state.filter = action.payload.toLowerCase();
     },
   },
   extraReducers: (builder) =>
@@ -47,4 +51,4 @@ export const carsSlice = createSlice({
   // },
 });
 // export const carReducer = carsSlice.reducer;
-export const { addOrders } = carsSlice.actions;
+export const { addOrders, filterCar } = carsSlice.actions;

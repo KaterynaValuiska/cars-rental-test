@@ -1,24 +1,31 @@
-import { Field, Form, Formik } from "formik";
+import { Formik } from "formik";
+import { useDispatch } from "react-redux";
+import { filterCar } from "./redux/slice";
+import { OptionStyle, FieldStyle, Button, FormStyle } from "./Filter.styled";
 
 const Filter = () => {
+  const dispatch = useDispatch();
   return (
-    <Formik
-      initialValues={{
-        make: "",
-      }}
-      onSubmit={(values) => console.log(values)}
-    >
-      <Form>
-        <Field as="select" name="make">
-          {makes.map((make) => (
-            <option key={make} value={make}>
-              {make}
-            </option>
-          ))}
-        </Field>
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+    <>
+      <Formik
+        initialValues={{
+          make: "",
+        }}
+        onSubmit={(values) => dispatch(filterCar(values.make))}
+      >
+        <FormStyle>
+          <FieldStyle as="select" name="make">
+            {makes.map((make) => (
+              <OptionStyle key={make} value={make}>
+                {make}
+              </OptionStyle>
+            ))}
+          </FieldStyle>
+
+          <Button type="submit">Submit</Button>
+        </FormStyle>
+      </Formik>
+    </>
   );
 };
 export default Filter;
